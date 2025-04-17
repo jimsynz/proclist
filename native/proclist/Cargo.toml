@@ -1,0 +1,13 @@
+[package]
+name = "proclist"
+version = "0.1.0"
+authors = []
+edition = "2021"
+
+[lib]
+name = "proclist"
+crate-type = ["cdylib"]
+
+[dependencies]
+rustler = "0.36.1"
+proclist = "0.9.2"

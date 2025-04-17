@@ -8,7 +8,7 @@ defmodule NeonProclist.MixProject do
   @version "0.1.0"
   def project do
     [
-      app: :neon_proclist,
+      app: :proclist,
       version: @version,
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
@@ -54,7 +54,7 @@ defmodule NeonProclist.MixProject do
       {:earmark, "~> 1.0", only: [:dev, :test], runtime: false},
       {:ex_check, "~> 0.16", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.37", only: [:dev, :test], runtime: false},
-      {:git_ops, "~> 2.0", only: [:dev], runtime: false},
+      {:git_ops, "~> 2.0", only: [:dev, :test], runtime: false},
       {:igniter, "~> 0.5", only: [:dev, :test]}
     ]
   end
