@@ -35,7 +35,7 @@ defmodule NeonProclist.MixProject do
       mantainers: ["James Harton <james@harton.dev>"],
       licenses: [],
       links: %{
-        "Source" => "https://harton.dev/project-neon/neon-proclist",
+        "Source" => "https://harton.dev/james/proclist",
         "Sponsor" => "https://github.com/sponsors/jimsynz"
       }
     ]
