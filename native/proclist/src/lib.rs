@@ -1,5 +1,4 @@
 use rustler::{NifResult, NifStruct, NifTaggedEnum};
-use proclist;
 
 
 #[derive(NifStruct)]
@@ -37,9 +36,9 @@ impl From<proclist::Error> for Error {
     }
 }
 
-impl Into<rustler::Error> for Error {
-    fn into(self) -> rustler::Error {
-        rustler::Error::Term(Box::new(self))
+impl From<Error> for rustler::error::Error {
+    fn from(error: Error) -> rustler::error::Error {
+        rustler::error::Error::Term(Box::new(error))
     }
 }
 
