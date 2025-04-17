@@ -50,7 +50,6 @@ defmodule NeonProclist.MixProject do
        subdir: "rustler_mix",
        branch: "improvement/mix_rustler.clippy",
        runtime: false,
-       optional: true,
        override: true},
       # {:rustler, "~> 0.36", runtime: false, optional: true},
 
