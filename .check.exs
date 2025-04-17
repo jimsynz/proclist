@@ -1,5 +1,5 @@
 [
   tools: [
-    {:clippy, "mix rustler.clippy"}
+    {:clippy, "mix rustler.clippy --all"}
   ]
 ]

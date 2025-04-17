@@ -45,7 +45,14 @@ defmodule NeonProclist.MixProject do
   defp deps do
     [
       {:rustler_precompiled, "~> 0.8"},
-      {:rustler, "~> 0.36", runtime: false, optional: true},
+      {:rustler,
+       github: "jimsynz/rustler",
+       subdir: "rustler_mix",
+       branch: "improvement/mix_rustler.clippy",
+       runtime: false,
+       optional: true,
+       override: true},
+      # {:rustler, "~> 0.36", runtime: false, optional: true},
 
       # dev/test
       {:credo, "~> 1.0", only: [:dev, :test], runtime: false},
