@@ -5,7 +5,7 @@ defmodule NeonProclist.MixProject do
   Elixir bindings to the `proclist` crate.
   """
 
-  @version "0.1.0"
+  @version "0.1.1"
   def project do
     [
       app: :proclist,

@@ -14,7 +14,7 @@ by adding `proclist` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:proclist, "~> 0.1.0"}
+    {:proclist, "~> 0.1.1"}
   ]
 end
 ```
