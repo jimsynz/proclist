@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## v0.1.2 (2025-04-27)
+
+
+
+
+### Improvements:
+
+* Support cross-compiling for Nerves.
+
 ## v0.1.1 (2025-04-23)
 
 
