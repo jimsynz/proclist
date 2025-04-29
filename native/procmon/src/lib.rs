@@ -1,19 +1,26 @@
 use rustler::env::Env;
 use rustler::types::Atom;
-use rustler::thread;
+
+#[cfg(target_os = "linux")]
+use cnproc;
 
 rustler::atoms! {
-    ok = "ok"
+    ok = "ok",
+    error = "error"
 }
 
+#[cfg(target_os = "linux")]
 #[rustler::nif]
 fn start(env: Env) -> Atom {
-    thread::spawn(env, move |env| {
-        std::thread::sleep(std::time::Duration::from_millis(10000));
-  ok().to_term(env)
-    });
+    let mut monitor = PidMonitor::new().unwrap();
 
-  ok()
+    ok()
+}
+
+#[cfg(not(target_os = "linux"))]
+#[rustler::nif]
+fn start() -> Atom {
+    error()
 }
 
 rustler::init!("Elixir.Proclist.Monitor");

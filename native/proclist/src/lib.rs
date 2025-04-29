@@ -1,22 +1,22 @@
 use rustler::{NifResult, NifStruct, NifTaggedEnum};
 
-
 #[derive(NifStruct)]
 #[module = "Proclist.Process"]
 pub struct Process {
     name: String,
     pid: u32,
     parent_pid: u32,
-    threads_count: u32
+    threads_count: u32,
 }
 
+#[cfg(target_os = "linux")]
 impl From<proclist::ProcessInfo> for Process {
     fn from(value: proclist::ProcessInfo) -> Process {
         Process {
             name: value.name,
             pid: value.pid,
             parent_pid: value.parent_pid,
-            threads_count: value.threads_count
+            threads_count: value.threads_count,
         }
     }
 }
@@ -24,14 +24,19 @@ impl From<proclist::ProcessInfo> for Process {
 #[derive(NifTaggedEnum)]
 pub enum Error {
     InternalError(String, String),
-    ExternalError(String, String)
+    ExternalError(String, String),
 }
 
+#[cfg(target_os = "linux")]
 impl From<proclist::Error> for Error {
     fn from(error: proclist::Error) -> Error {
         match error {
-            proclist::Error::InternalError{description, cause} => Error::InternalError(description, cause),
-            proclist::Error::ForeignError{api_name, errno} => Error::ExternalError(api_name.to_string(), format!("{}", errno))
+            proclist::Error::InternalError { description, cause } => {
+                Error::InternalError(description, cause)
+            }
+            proclist::Error::ForeignError { api_name, errno } => {
+                Error::ExternalError(api_name.to_string(), format!("{}", errno))
+            }
         }
     }
 }
@@ -42,12 +47,26 @@ impl From<Error> for rustler::error::Error {
     }
 }
 
+#[cfg(target_os = "linux")]
 #[rustler::nif]
 pub fn all_processes() -> NifResult<Vec<Process>> {
     match proclist::get_processes_info() {
-        Ok(processes) => Ok(processes.iter().map(|process| process.clone().into()).collect()),
-        Err(error) => Err(Into::<Error>::into(error).into())
+        Ok(processes) => Ok(processes
+            .iter()
+            .map(|process| process.clone().into())
+            .collect()),
+        Err(error) => Err(Into::<Error>::into(error).into()),
     }
+}
+
+#[cfg(not(target_os = "linux"))]
+#[rustler::nif]
+pub fn all_processes() -> NifResult<Vec<Process>> {
+    Err(Error::InternalError(
+        "This crate only supports Linux".to_string(),
+        "eos".to_string(),
+    )
+    .into())
 }
 
 rustler::init!("Elixir.Proclist");

@@ -7,6 +7,5 @@ defmodule Proclist.Monitor do
     crate: :procmon,
     target: System.get_env("RUSTLER_TARGET")
 
-  @doc false
-  def add(a, b), do: :erlang.nif_error(:not_loaded)
+  def start, do: :erlang.nif_error(:not_loaded)
 end
