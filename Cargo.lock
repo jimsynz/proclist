@@ -18,6 +18,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
+name = "cnproc"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e80ed54e25ca8ae7bda301eee4b44a62ad079082e6b8bc96d3a33ae4e1e7ed5c"
+dependencies = [
+ "libc",
+]
+
+[[package]]
 name = "errno"
 version = "0.2.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -95,6 +104,14 @@ dependencies = [
  "errno",
  "libc",
  "winapi",
+]
+
+[[package]]
+name = "procmon"
+version = "0.1.0"
+dependencies = [
+ "cnproc",
+ "rustler",
 ]
 
 [[package]]
