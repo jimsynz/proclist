@@ -87,7 +87,6 @@ defmodule NeonProclist.MixProject do
       {:credo, "~> 1.0", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false},
       {:doctor, "~> 0.22", only: [:dev, :test], runtime: false},
-      {:earmark, "~> 1.0", only: [:dev, :test], runtime: false},
       {:ex_check, "~> 0.16", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.38", only: [:dev, :test], runtime: false},
       {:git_ops, "~> 2.0", only: [:dev, :test], runtime: false},
