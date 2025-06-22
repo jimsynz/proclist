@@ -5,7 +5,7 @@ defmodule NeonProclist.MixProject do
   Elixir bindings to the `proclist` crate.
   """
 
-  @version "0.1.2"
+  @version "0.1.3"
 
   @nerves_rust_target_triple_mapping %{
     "armv6-nerves-linux-gnueabihf": "arm-unknown-linux-gnueabihf",

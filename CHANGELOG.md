@@ -5,6 +5,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## v0.1.3 (2025-06-22)
+
+
+
+
+### Bug Fixes:
+
+* deps: update dependency rustler to v0.36.2
+
 ## v0.1.2 (2025-04-27)
 
 
