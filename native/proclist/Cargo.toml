@@ -9,5 +9,5 @@ name = "proclist"
 crate-type = ["cdylib"]
 
 [dependencies]
-rustler = "0.36.1"
+rustler = "0.37.0"
 proclist = "0.9.2"

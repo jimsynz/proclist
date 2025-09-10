@@ -81,7 +81,7 @@ defmodule NeonProclist.MixProject do
   defp deps do
     [
       {:rustler_precompiled, "~> 0.8"},
-      {:rustler, "~> 0.36", runtime: false},
+      {:rustler, "~> 0.37", runtime: false},
 
       # dev/test
       {:credo, "~> 1.0", only: [:dev, :test], runtime: false},
